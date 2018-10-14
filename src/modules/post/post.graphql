@@ -1,0 +1,8 @@
+type Post {
+  body: String!
+  id: Int!
+}
+
+type Query {
+  post(id: Int!): Post
+}
