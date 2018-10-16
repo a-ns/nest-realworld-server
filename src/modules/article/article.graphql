@@ -1,0 +1,39 @@
+type Article {
+  slug: String!
+  title: String!
+  description: String
+  body: String
+  tagList: [String]!
+  createdAt: String
+  updatedAt: String
+  favorited: Boolean
+  author: User
+}
+
+type Query {
+  article(slug: String!): Article
+  articles(
+    first: Int
+    after: String
+    authoredBy: String
+    favoritedBy: String
+    withTag: String
+  ): [Article]!
+}
+
+type Mutation {
+  createArticle(
+    title: String!
+    description: String!
+    body: String!
+    tagList: [String]
+  ): Article
+  updateArticle(
+    slug: String!
+    title: String
+    description: String
+    body: String
+  ): Article
+  deleteArticle(slug: String!): Article
+  favoriteArticle(slug: String!): Article
+}
